@@ -1,6 +1,6 @@
 # Vite + React + Typescript + Eslint + Prettier: an example repo Updated for 2025!
 
-A starter for React with Typescript with the fast Vite, Vitest and all static code testing with Eslint and formatting with Prettier. As of this writing updated to React 19; and the latest versions of all tools as of March 2025. This was built for use by the [Northwestern University CS394 Class taught by Todd Warren](https://toddwseattle.com/blog/2025-02-05-CS394-2025-Spring-Software-Engineering-Course/)
+A starter for React with Typescript with the fast Vite, Vitest and all static code testing with Eslint and formatting with Prettier. As of this writing updated to React 19; and the latest versions of all tools as of March 2025. This was built for use by the [Northwestern University CS394 Class taught by Todd Warren](https://toddwseattle.com//teaching/software-engineering/)
 
 Once up and running it looks like this:
 
@@ -10,8 +10,9 @@ You can find more about these in the following links: [Vite](https://vitejs.dev)
 
 ## Installation
 
-- Make sure you are running node 20 or later
-- npm 10.x or higher (comes with Node.js 20)
+- Use Node.js 22 or later
+- npm 10.x or higher
+- If you use `nvm`, run `nvm use` after cloning the repo to pick up the repo's default Node version
 
 ```
 node --version
