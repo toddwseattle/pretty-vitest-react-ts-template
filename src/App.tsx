@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { useState } from 'react';
 
-import logo from './394-2025-Logo.svg';
+import logo from './394-2026-Logo.png';
 
 function App() {
   const [count, setCount] = useState(0);
