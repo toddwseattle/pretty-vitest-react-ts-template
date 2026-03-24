@@ -2,6 +2,8 @@
 
 This starter combines React, TypeScript, Vite, Vitest, ESLint, and Prettier in a setup intended for Northwestern CS394 projects and similar coursework. The template now targets the 2026 major-version baseline verified in this repository on March 24, 2026.
 
+![394-2026-Screenshot](./resources/2026-screenshot.png)
+
 ## Toolchain Baseline
 
 - Node.js `22+` recommended
@@ -55,10 +57,6 @@ For the smoothest editing experience:
 ## Pre-commit Hook
 
 The repo includes Husky setup and keeps the historical `pre-commit` lint flow in `package.json`. Running `npm run lint` before committing is still the safest way to ensure formatting and lint fixes are already applied.
-
-## Upgrade Notes
-
-The detailed 2026 upgrade record, including verification results and package decisions, is in [docs/upgrade-2026.md](/Users/toddwseattle/dev/cs394-template/docs/upgrade-2026.md).
 
 ## Acknowledgments
 
