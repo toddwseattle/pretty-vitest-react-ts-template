@@ -14,6 +14,18 @@ This starter combines React, TypeScript, Vite, Vitest, ESLint, and Prettier in a
 - Vite `8.0.x`
 - Vitest `4.1.x`
 
+You can find more about these in the following links: [Vite](https://vitejs.dev), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/), [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+## What's New in 2025/2026
+
+- **React 19** with the latest React DOM and TypeScript types
+- **Vite 8** for faster builds and dev server
+- **Vitest 4** with visual UI mode and V8 coverage reporting
+- **React Testing Library** with `@testing-library/jest-dom` for readable assertions and `@testing-library/user-event` for realistic user interaction simulation
+- **TypeScript 5.9** with strict mode enabled
+- **ESLint 9** using the new flat config format
+- All dependencies updated to their latest stable versions
+
 ## Installation
 
 Clone the repo and install dependencies:
@@ -44,6 +56,82 @@ npx degit toddwseattle/pretty-vitest-react-ts-template project-name
 - `npm test -- --run` runs the Vitest suite once without watch mode.
 - `npm run test:ui` starts the Vitest UI.
   - The UI server is pinned to `127.0.0.1:51204`.
+
+Install packages: `npm install`
+
+Start the dev server: `npm run dev`
+
+## Testing
+
+This template uses [Vitest](https://vitest.dev/) with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing React components.
+
+### Running Tests
+
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests with the visual UI
+npm run test:ui
+
+# Run tests with coverage report
+npm run test:coverage
+```
+
+### Writing Tests with React Testing Library
+
+Tests live alongside your source files (e.g., `src/app.test.tsx` tests `src/App.tsx`). Here's a quick guide:
+
+**Rendering a component:**
+
+```tsx
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders a heading', () => {
+  render(<App />);
+  expect(screen.getByText('Hello World')).toBeInTheDocument();
+});
+```
+
+**Simulating user interactions with `userEvent`:**
+
+```tsx
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+test('button click increments counter', async () => {
+  const user = userEvent.setup();
+  render(<Counter />);
+  await user.click(screen.getByRole('button'));
+  expect(screen.getByText('count is: 1')).toBeInTheDocument();
+});
+```
+
+**Common queries (in order of priority):**
+
+1. `getByRole` - query by ARIA role (preferred for accessibility)
+2. `getByLabelText` - query by form label
+3. `getByPlaceholderText` - query by input placeholder
+4. `getByText` - query by visible text content
+5. `getByAltText` - query by image alt text
+
+### Testing Best Practices
+
+- **Query by role first.** Use `getByRole` when possible. It encourages accessible markup and tests your component the way users interact with it.
+- **Use `userEvent` over `fireEvent`.** `userEvent` simulates real browser behavior (focus, hover, keyboard events) while `fireEvent` dispatches a single DOM event. This catches more bugs.
+- **Avoid testing implementation details.** Don't test state variables or internal methods. Test what the user sees and does.
+- **Write descriptive test names.** A test name should explain what the component does, not how it does it. E.g., "shows error message when form is submitted empty" rather than "sets error state to true."
+- **One assertion per behavior.** Each test should verify one behavior. Multiple related assertions in a test are fine, but avoid testing unrelated behaviors together.
+
+### Test Setup
+
+The test environment is configured in `vite.config.ts`:
+
+- **Environment:** jsdom (simulates browser DOM)
+- **Globals:** enabled (no need to import `describe`, `test`, `expect` manually)
+- **Setup file:** `src/test/setup.ts` loads `@testing-library/jest-dom` matchers like `toBeInTheDocument()`
+- **Coverage:** V8 provider with 70% thresholds for statements, branches, functions, and lines
 
 ## VS Code Setup
 
