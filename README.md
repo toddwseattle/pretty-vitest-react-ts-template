@@ -65,6 +65,8 @@ Start the dev server: `npm run dev`
 
 This template uses [Vitest](https://vitest.dev/) with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing React components.
 
+**Note**: npm audit currently reports GHSA-rf6f-7fwh-wjgh via flatted; awaiting upstream fix in @vitest/ui / flat-cache. This is a dev only dependency do notinclud npm audit of dev dependencies in your ci workflow until this is resolved.
+
 ### Running Tests
 
 ```bash
